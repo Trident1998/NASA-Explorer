@@ -180,12 +180,11 @@ img {
     text-align: justify;
 }
 
-.card h2 {
-    font-size: 1.5em; 
+.text-container h2 {
     color: var(--secondary-color);
 }
 
-.card p {
+.text-container p {
     color: rgba(161, 161, 170, 1);;
 }
 
