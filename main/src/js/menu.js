@@ -9,7 +9,6 @@ export function initializeMenu() {
 
     hamButton.addEventListener('click', toggleMenu);
 
-    // Optionally, you can return a function to remove the event listener
     return function removeMenuListener() {
         hamButton.removeEventListener('click', toggleMenu);
     };
