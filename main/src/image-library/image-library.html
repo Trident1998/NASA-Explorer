@@ -10,13 +10,36 @@
     <header id="main-header" class="divider"></header>
 
     <main>
+        
+        
+        <div class="empty-space"></div>
+
+         <div class="container">
+
+        <h2>Search Form</h2>
+        <form id="searchForm">
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description"><br><br>
+            
+            <label for="startYear">Start Year (YYYY):</label>
+            <input type="number" id="startYear" name="startYear" min="1900" value="1900"><br><br>
+            
+            <label for="endYear">End Year (YYYY):</label>
+            <input type="number" id="endYear" name="endYear" value="2022"><br><br>
+            
+            <input type="submit" value="Search">
+        </form>
+        
+        <div id="searchResults"></div>
+    </div>
         <section class="products">
             <h2>Top Products: <span class="title"></span></h2>
-            <ul class="product-list"></ul>
+            <ul class="image-list"></ul>
           </section>
     </main>
    
     <footer id="main-footer"></footer>
      <script src="../js/about.js" type="module"></script>   
+     <script src="../js/image-library.js" type="module"></script>
 </body>
 </html>

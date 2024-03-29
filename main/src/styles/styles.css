@@ -42,6 +42,12 @@ a {
     text-decoration: none;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 /*      HOME PAGE     */
 header {
     position: fixed;
@@ -170,9 +176,18 @@ img {
     overflow: hidden; 
 }
 
+.card:hover {
+    border-color: rgba(81, 51, 229, 0.7); /* Darker border color on hover */
+}
+
 .card img {
     display: block; 
-    border-bottom: 1px solid  rgba(81, 51, 229, 0.3); 
+    border-bottom: 1px solid  rgba(81, 51, 229, 0.3);
+    width: 100%; /* Ensure the image fills the width of its container */
+    height: calc(100vw * 0.4); /* Set the height to 40% of the viewport width */
+    object-fit: cover; /* Ensure the image covers the entire space */
+    object-position: top; /* Center the image within its container */
+    overflow: hidden; /* Hide the overflowing parts of the image */
 }
 
 .text-container {
@@ -184,13 +199,27 @@ img {
     color: var(--secondary-color);
 }
 
+.text-container h3 {
+    color: var(--primary-color); 
+    margin-top: 30px;
+}
+
+.text-container h3:hover {
+    text-decoration: underline;
+}
+
+.text-container h4 {
+    color: var(--secondary-color);
+    margin: 5px;
+}
+
 .text-container p {
-    color: rgba(161, 161, 170, 1);;
+    color: rgba(161, 161, 170, 1);
 }
 
 .check-it-out {
     border-top: 1px solid rgba(81, 51, 229, 0.3); 
-    color:var(--primary-color); 
+    color: var(--primary-color); 
     font-weight: bold;
     background-color: transparent;
     text-decoration: none;
@@ -211,6 +240,8 @@ img {
  .check-it-out:hover, .check-it-out:active {
     color:var(--secondary-color);
  }
+
+ 
 
 footer {
     display: flex;
