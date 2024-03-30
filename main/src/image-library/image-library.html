@@ -9,29 +9,21 @@
 <body>
     <header id="main-header" class="divider"></header>
 
-    <main>
-        
-        
+    <main>    
         <div class="empty-space"></div>
 
-         <div class="container">
-
-        <h2>Search Form</h2>
-        <form id="searchForm">
-            <label for="description">Description:</label>
-            <input type="text" id="description" name="description"><br><br>
+        <div class="container">
+            <form id="searchForm">
+                <div>
+                    <label for="description">Search Terms:</label>
+                    <input type="text" id="description" name="description">
+                </div>
+                <input type="submit" value="Search">
+            </form>
             
-            <label for="startYear">Start Year (YYYY):</label>
-            <input type="number" id="startYear" name="startYear" min="1900" value="1900"><br><br>
-            
-            <label for="endYear">End Year (YYYY):</label>
-            <input type="number" id="endYear" name="endYear" value="2022"><br><br>
-            
-            <input type="submit" value="Search">
-        </form>
+            <div id="searchResults"></div>
+        </div>
         
-        <div id="searchResults"></div>
-    </div>
         <section class="products">
             <h2>Top Products: <span class="title"></span></h2>
             <ul class="image-list"></ul>
