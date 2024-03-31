@@ -38,3 +38,17 @@ export function imageLibraryCardTemplate(data) {
         </li>`        
     }
 }
+
+export function dayPictureTemplate(data) {
+    if(data != null) {
+        return `
+        <img src="${data.hdurl}" alt="${data.title}">
+
+        <div class="text-container">
+            <p class="date">${data.date}</p>
+            <h1 class="glow">${data.title}</h1>
+            <p class="copyright">${data.copyright}</p>
+            <p class="explanation">${data.explanation}</p>
+        </div>`        
+    }
+}
