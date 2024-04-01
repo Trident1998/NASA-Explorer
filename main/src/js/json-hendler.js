@@ -42,7 +42,7 @@ export function imageLibraryCardTemplate(data) {
 export function dayPictureTemplate(data) {
     if(data != null) {
         return `
-        <img src="${data.hdurl}" alt="${data.title}">
+        <img src="${data.url}" alt="${data.title}">
 
         <div class="text-container">
             <p class="date">${data.date}</p>

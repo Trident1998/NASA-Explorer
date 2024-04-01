@@ -262,6 +262,7 @@ form {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    font-size: 16px;
 }
 
 #description {
@@ -273,10 +274,11 @@ form {
 
 label {
     color: var(--secondary-color);
-    text-align: center; /* Center-align the labels */
+    text-align: center; 
 }
 
-input[type=text] {
+input[type=text],
+input[type="date"] {
     background-color: var(--dark-accent-color);
     padding: 8px;
     border: none;
@@ -284,10 +286,14 @@ input[type=text] {
     box-sizing: border-box;
     outline: none;
     color: var(--secondary-color);
+    font-size: 16px;
   }
   
-  input[type=text]:focus {
+  input[type=text]:focus, 
+  input[type="date"]:focus {
     border: none;
+    border-bottom: 1px solid var(--secondary-color);
+
   }
 
 input[type="submit"] {
@@ -297,10 +303,12 @@ input[type="submit"] {
     cursor: pointer;
     padding: 15px;
     border-radius: 8px;
+    font-size: 16px;
 }
 
 input[type="submit"]:hover {
     background-color: rgba(81, 51, 229, 0.7);
+
 }
 
 
