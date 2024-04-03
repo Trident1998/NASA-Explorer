@@ -5,12 +5,32 @@ import { imageLibraryCardTemplate } from "./json-hendler.js"
 
 const baseURL = "https://images-api.nasa.gov"
 
+const ParamNameList = ['keywords', 'center', 'secondary_creator', 'nasa_id'];
+
 document.addEventListener("DOMContentLoaded", async () => {
     await loadHeaderFooter();
 
     initializeMenu();
     setActiveByText('Image Library');
 });
+
+
+const [paramName, value] = getParams();
+
+if(paramName != null){
+    searchImage(value, paramName)
+} else {
+    searchImage('Supernova');
+}
+
+
+function getParams() {
+    const queryString = window.location.search;
+    const urlParamsObject = new URLSearchParams(queryString)
+    const paramName = ParamNameList.find(param => urlParamsObject.has(param));
+    const value = urlParamsObject.get(paramName)
+    return [paramName, value]
+  }
 
 document.getElementById("searchForm").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -34,10 +54,11 @@ function searchNotFound(description) {
     searchResultsContainer.appendChild(message);
 }
 
-async function searchImage(searchTeerm) {
+async function searchImage(searchTeerm, param = 'q') {
+    adjustSearchField(searchTeerm);
     document.querySelector(".error-message").innerHTML = '';
     const element = document.querySelector(".image-list");
-    const response = await fetch(baseURL + `/search?q=${searchTeerm}`);
+    const response = await fetch(baseURL + `/search?${param}=${searchTeerm}`);
     const data = await convertToJson(response);
     console.log(data.collection.items)
   
@@ -51,4 +72,8 @@ async function searchImage(searchTeerm) {
     }
   }
 
-  searchImage('Supernova');
+
+  function adjustSearchField(searchTeerm) {
+    document.querySelector("#description").value = searchTeerm;
+
+  }

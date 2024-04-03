@@ -64,10 +64,10 @@ export function imageCardItemTemplate(data) {
             <hr class="horizontal-line">
 
             <div class="metadata-container">
-            ${metaDataRemplate('Keywords', data.data[0].keywords)}
-            ${metaDataRemplate('Center', [data.data[0].center])}
-            ${metaDataRemplate('Secondary Creator', [data.data[0].secondary_creator])}    
-            ${metaDataRemplate('NASA ID', [data.data[0].nasa_id], false)}   
+            ${metaDataRemplate('Keywords', 'keywords', data.data[0].keywords)}
+            ${metaDataRemplate('Center', 'center', [data.data[0].center])}
+            ${metaDataRemplate('Secondary Creator', 'secondary_creator', [data.data[0].secondary_creator])}    
+            ${metaDataRemplate('NASA ID', 'nasa_id', [data.data[0].nasa_id], false)}   
             <hr class="horizontal-line">
 
             <p class="description">${data.data[0].description}</p>
@@ -75,10 +75,10 @@ export function imageCardItemTemplate(data) {
     }
 }
 
-const metaDataRemplate = (key, valyes, isLink = true) => {
+const metaDataRemplate = (key, parameterName, valyes, isLink = true) => {
     return `
     <div class="metadata">
         <p class="metadata-key">${key}:</p> 
-        ${valyes.map(value => isLink ? `<a href="../index/index.html">${value}</a>` : `<p>${value}</p>`).join(",")}
-    </div> s`;
+        ${valyes.map(value => isLink ? `<a href="../image-library/image-library.html?${parameterName}=${value}">${value}</a>` : `<p>${value}</p>`).join(",")}
+    </div>`;
 }
