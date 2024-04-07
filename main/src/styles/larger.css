@@ -57,12 +57,18 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         align-items: center;
+        justify-items: end;
     }
 
     .introduction,
     .about-container .text-container {
         grid-column: 1/2;
         grid-row: 1/2;
+    }
+
+    .introduction-container img {
+        width: 500px;
+        height: auto;
     }
 
     .introduction-container img,
@@ -83,11 +89,31 @@
         display: block; 
         border-bottom: 1px solid  rgba(81, 51, 229, 0.3);
         width: 100%; /* Ensure the image fills the width of its container */
-        height: auto; /* Set the height to 40% of the viewport width */
+        height: 500px; /* Set the height to 40% of the viewport width */
         object-position: top; /* Center the image within its container */
         overflow: hidden; /* Hide the overflowing parts of the image */
     }
 
+    .main .text-container p {
+        font-size: 14px;
+    }
+
+    .index-container .card a:first-child {
+        height: 400px;
+    }
+
+    .check-it-out {
+        border-top: 1px solid rgba(81, 51, 229, 0.3); 
+        color: var(--primary-color); 
+        font-weight: bold;
+        background-color: transparent;
+        text-decoration: none;
+        width: 100%;
+    }
+    
+     .check-it-out:hover, .check-it-out:active {
+        color:var(--secondary-color);
+     }
 
     /*---------ABOUT-----------*/
 
@@ -134,7 +160,7 @@
         
     }
 
-    ul li, .card, .card a {
+    .image-list .card a {
         display: block;
         min-width: 100%;
         min-height: 450px;

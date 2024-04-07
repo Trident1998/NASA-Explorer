@@ -240,7 +240,7 @@ img {
     width: 100%;
 }
 
-.check-it-out:link, .check-it-out:visited {
+.check-it-out:link {
     background-color: black;
     color: rgba(81, 51, 229, 1); 
     border-top: 1px solid rgba(81, 51, 229, 0.3); 

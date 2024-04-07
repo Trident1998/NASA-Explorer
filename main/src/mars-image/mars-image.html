@@ -13,11 +13,9 @@
     <main>
         <div class="empty-space"></div>
         <div class="container">
-            <h2>Rover and Camera Selection</h2>
             <form id="roverForm">
                 <!-- Rover selection -->
                 <div>
-                    <label for="roverSelect">Select a rover:</label>
                     <select id="roverSelect" name="rover">
                         <option value="">Select Rover</option>
                         <option value="curiosity">Curiosity</option>
@@ -28,7 +26,6 @@
                 
                 <!-- Camera selection (populated dynamically based on selected rover) -->
                 <div>
-                    <label for="cameraSelect">Select a camera:</label>
                     <select id="cameraSelect" name="camera" disabled>
                         <option value="">Select Rover First</option>
                     </select>
