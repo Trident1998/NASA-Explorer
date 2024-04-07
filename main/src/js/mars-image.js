@@ -72,9 +72,9 @@ document.getElementById('roverSelect').addEventListener('change', function() {
     }
 });
 
-function searchNotFound(description) {
+function searchNotFound(rover, camera) {
     const message = document.createElement('p');
-    message.textContent = `No results found for "${description}".`;
+    message.textContent = `No photos found for rover: "${rover}" and camera: "${camera}" condition.`;
     message.style.color = 'red';
     message.style.fontWeight = 'bold';
     
@@ -83,25 +83,24 @@ function searchNotFound(description) {
     searchResultsContainer.appendChild(message);
 }
 
-async function searchImage(rover = 'opportunity', camera) {
+async function searchImage(rover = 'curiosity', camera) {
     document.querySelector(".error-message").innerHTML = '';
     const element = document.querySelector(".image-list");
     let response = null;
     if(camera == null || camera == "") {
-        response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=10&api_key=xASSlKoxMIn6RTO7VuJLtSzpunRqbD3nJqaEvwdo`);
+        response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/latest_photos?api_key=xASSlKoxMIn6RTO7VuJLtSzpunRqbD3nJqaEvwdo`);
     } else {
-        response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=10&camera=${camera}&api_key=xASSlKoxMIn6RTO7VuJLtSzpunRqbD3nJqaEvwdo`);
+        response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/latest_photos?camera=${camera}&api_key=xASSlKoxMIn6RTO7VuJLtSzpunRqbD3nJqaEvwdo`);
     }
     const data = await convertToJson(response);
-    console.log(data.photos);
+    console.log(data.latest_photos);
   
-    const list = data.photos.slice(0, 99).map(marsPictureListTemplate).join("");
+    const list = data.latest_photos.slice(0, 99).map(marsPictureListTemplate).join("");
   
-    if (data.photos != 0) {
-        console.log(list);
+    if (data.latest_photos != 0) {
         element.innerHTML = list;
     } else {
-        searchNotFound(searchTeerm);
+        searchNotFound(rover, camera);
     }
   }
 
