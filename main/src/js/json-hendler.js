@@ -1,26 +1,3 @@
-
-
-function productDetailsTemplate(product) {
-    return `<section class="product-detail">
-        <h3>${product.Brand.Name}</h3>
-  
-        <h2 class="divider">${product.NameWithoutBrand}</h2>
-  
-        <img class="product-image"
-            src="${product.Images.PrimaryLarge}"
-            alt="${product.NameWithoutBrand}" />
-  
-        <p class="product-card__price">$${product.FinalPrice}</p>
-        <p class="product__color">${product.Colors[0].ColorName}</p>
-        <p class="product__description">${product.DescriptionHtmlSimple}</p>
-  
-        <div class="product-detail__add">
-            <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
-        </div>
-    </section>`
-}
-
-
 export function imageLibraryCardTemplate(data) {
     if(data.links != null) {
         return `<li>
@@ -30,9 +7,9 @@ export function imageLibraryCardTemplate(data) {
                     <div class="text-container">
                         <h4>${data.data[0].date_created.split('T')[0]}</h4>
                         <h4>${data.data[0].title}</h4>
-
-                        <h3>DETAILS</h3>
                     </div>
+
+                    <h3>DETAILS</h3>
                 </a>
             </section>
         </li>`        
@@ -57,7 +34,7 @@ export function marsPictureListTemplate(data) {
     if(data != null) {
         return `
         <li class="image-item">
-        <img src="${data.img_src}" alt="${data.id}" loading="lazy">
+        <img class="mars" src="${data.img_src}" alt="${data.id}" loading="lazy">
         <div class="image-info">
             <p class="date">Earth darte: ${data.earth_date}</p>
             <p>ID: ${data.id}</p>
@@ -73,7 +50,7 @@ export function imageCardItemTemplate(data) {
         return`
         <img src="${data.links[0].href}" alt="${data.data[0].title}">
 
-        <div class="text-container">
+        <div class="text-container card-item">
             <h1 class="title">${data.data[0].title}</h1>
             <p class="date">2${data.data[0].date_created.split('T')[0]}</p>
             <hr class="horizontal-line">

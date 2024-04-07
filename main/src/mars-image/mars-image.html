@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/styles.css"/>
+    <link rel="stylesheet" href="../styles/larger.css"/>
     <title>NASA API Explorer</title>
 </head>
 <body>
@@ -15,24 +16,30 @@
             <h2>Rover and Camera Selection</h2>
             <form id="roverForm">
                 <!-- Rover selection -->
-                <label for="roverSelect">Select a rover:</label>
-                <select id="roverSelect" name="rover">
-                    <option value="">Select Rover</option>
-                    <option value="curiosity">Curiosity</option>
-                    <option value="opportunity">Opportunity</option>
-                    <option value="spirit">Spirit</option>
-                </select>
+                <div>
+                    <label for="roverSelect">Select a rover:</label>
+                    <select id="roverSelect" name="rover">
+                        <option value="">Select Rover</option>
+                        <option value="curiosity">Curiosity</option>
+                        <option value="opportunity">Opportunity</option>
+                        <option value="spirit">Spirit</option>
+                    </select>
+                </div>
+                
                 <!-- Camera selection (populated dynamically based on selected rover) -->
-                <label for="cameraSelect">Select a camera:</label>
-                <select id="cameraSelect" name="camera" disabled>
-                    <option value="">Select Rover First</option>
-                </select>
+                <div>
+                    <label for="cameraSelect">Select a camera:</label>
+                    <select id="cameraSelect" name="camera" disabled>
+                        <option value="">Select Rover First</option>
+                    </select>
+                </div>
+                
                 <!-- Submit button -->
                 <button type="submit">Submit</button>
             </form>
         </div>
         
-        <section class="searchResults">
+        <section class="search-results">
             <div class="error-message"></div>
             <ul class="image-list"></ul>
           </section>

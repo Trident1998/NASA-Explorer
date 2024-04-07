@@ -29,11 +29,11 @@ async function searchImage(nasaId) {
     const data = await convertToJson(response);
     console.log(data.collection.items)
   
-    const list = data.collection.items.map(imageCardItemTemplate).join("");
+    const html = imageCardItemTemplate(data.collection.items[0]);
   
     if (data.collection.items != 0) {
-        console.log(list);
-        element.innerHTML = list;
+        console.log(html);
+        element.innerHTML = html;
     } else {
         searchNotFound(nasaId);
     }

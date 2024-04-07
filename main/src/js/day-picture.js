@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadHeaderFooter();
 
     initializeMenu();
-    setActiveByText('Astronomy Picture of the Day');
+    setActiveByText('Picture of the Day');
 });
 
 document.getElementById("searchForm").addEventListener("submit", function(event) {

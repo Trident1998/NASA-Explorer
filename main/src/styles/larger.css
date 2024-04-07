@@ -1,0 +1,207 @@
+@media (min-width: 750px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    #hamburger {
+		display: none;
+	}
+
+    header {
+        grid-template-columns: 100px 1fr;
+    }
+
+    header div:first-child {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        grid-row: 1/2;
+        grid-column: 2/3;
+    }
+
+    .navigation li {
+		display: block;
+		flex: 1 1 100%;
+	}
+
+    .navigation a {
+        font-size: 18px;
+    }
+    
+    .index-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 15px;
+    }
+
+    .introduction-container, .about-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    .introduction,
+    .about-container .text-container {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .introduction-container img,
+    .about-container img {
+        grid-column: 2/3;
+    }
+
+    .title {
+        margin-bottom: 40px;
+        font-size: 36px;
+    }
+
+    .card {
+        margin: 0;
+    }
+
+    .card img {
+        display: block; 
+        border-bottom: 1px solid  rgba(81, 51, 229, 0.3);
+        width: 100%; /* Ensure the image fills the width of its container */
+        height: auto; /* Set the height to 40% of the viewport width */
+        object-position: top; /* Center the image within its container */
+        overflow: hidden; /* Hide the overflowing parts of the image */
+    }
+
+
+    /*---------ABOUT-----------*/
+
+    .about h2 {
+        margin-top: 45px;
+    }
+
+    /*-------IMAGE LIBRARY--------*/
+    form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    form div:first-child {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    #description {
+        width: 400px;
+        margin-left: 10px;
+    }
+
+    .image-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .search-results {
+        margin: 15px;
+    }
+
+    .image-list li img {
+        min-height: 200px;
+        max-height: 200px;
+        object-fit: cover; /* Ensure the image covers the entire space */
+        object-position: top; /* Center the image within its container */
+        overflow: hidden; /* Hide the overflowing parts of the image */
+        
+    }
+
+    ul li, .card, .card a {
+        display: block;
+        min-width: 100%;
+        min-height: 450px;
+        max-height: 450px;
+    }
+    
+    .card .text-container {
+        height: 100%;
+    }
+
+    .card a {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-decoration: none; /* Remove underline from the anchor */
+    }
+    
+
+    .card a h3 {
+        margin-top: auto;        
+    }
+
+    /*-------IMAGE ITEM--------*/
+
+    .image-card-item {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-item  h1, .image-card-item .card-item {
+        margin-top: 0;
+    }
+
+    /*-------DAY PICTURE--------*/
+
+    .day-picture-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .day-picture-container .text-container {
+        margin-top: 0;
+    }
+
+    /*--------MARS IMAGE--------*/
+
+    .image-list li .mars {
+        min-height: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        object-position: top;
+        overflow: hidden;
+    }
+
+    #roverForm {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) 200px;
+        gap: 15px;    
+        font-size: 24px;
+
+    }
+
+    #roverForm div {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+  
