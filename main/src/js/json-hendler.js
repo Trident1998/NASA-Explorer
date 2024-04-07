@@ -42,7 +42,7 @@ export function imageLibraryCardTemplate(data) {
 export function dayPictureTemplate(data) {
     if(data != null) {
         return `
-        <img src="${data.url}" alt="${data.title}">
+        <img src="${data.url}" alt="${data.title}" loading="lazy">
 
         <div class="text-container">
             <p class="date">${data.date}</p>
@@ -50,6 +50,21 @@ export function dayPictureTemplate(data) {
             <p class="copyright">${data.copyright}</p>
             <p class="explanation">${data.explanation}</p>
         </div>`;  
+    }
+}
+
+export function marsPictureListTemplate(data) {
+    if(data != null) {
+        return `
+        <li class="image-item">
+        <img src="${data.img_src}" alt="${data.id}" loading="lazy">
+        <div class="image-info">
+            <p class="date">Earth darte: ${data.earth_date}</p>
+            <p>ID: ${data.id}</p>
+            <h3>Rover: ${data.rover.name}</h3>
+            <p>Camera: ${data.camera.full_name} (${data.camera.name})</p>
+        </div>
+    </li>`;  
     }
 }
 

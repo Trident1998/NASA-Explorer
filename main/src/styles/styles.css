@@ -385,6 +385,7 @@ input[type="submit"]:hover {
 .text-container h1 {
     font-size: 32px;
     line-height: 3rem;
+    color: white;
 }
 
 .text-container .explanation {
@@ -393,7 +394,15 @@ input[type="submit"]:hover {
     line-height: 2rem;
 }
 
+/*--------MARS IMAGE--------*/
 
+#roverForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 16px;
+}
 
 
 footer {
