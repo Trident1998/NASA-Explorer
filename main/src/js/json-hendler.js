@@ -52,7 +52,12 @@ export function imageCardItemTemplate(data) {
 
         <div class="text-container card-item">
             <h1 class="title">${data.data[0].title}</h1>
-            <p class="date">2${data.data[0].date_created.split('T')[0]}</p>
+
+            <div class="favorite-container">
+                <p class="date">2${data.data[0].date_created.split('T')[0]}</p>
+                ${favoriteSign(data.data[0].nasa_id)}
+            </div>
+            
             <hr class="horizontal-line">
 
             <div class="metadata-container">
@@ -73,4 +78,13 @@ const metaDataRemplate = (key, parameterName, valyes, isLink = true) => {
         <p class="metadata-key">${key}:</p> 
         ${valyes.map(value => isLink ? `<a href="../image-library/image-library.html?${parameterName}=${value}">${value}</a>` : `<p>${value}</p>`).join(",")}
     </div>`;
+}
+
+const favoriteSign = (nasaId) => {
+    const storage = JSON.parse(localStorage.getItem('favorite'));
+    if(storage == null || storage == "" || !storage.includes(nasaId)) {
+        return `<div class="favorite-symbol" id="favorite-symbol">&#9734;</div>`;
+    } 
+    
+    return `<div class="favorite-symbol filled" id="favorite-symbol">&#9733;</div>`;
 }

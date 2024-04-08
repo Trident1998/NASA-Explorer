@@ -43,6 +43,29 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
     }
 });
 
+document.getElementById("showFavoritesBtn").addEventListener("click", function() {
+    const favorites = JSON.parse(localStorage.getItem('favorite'));
+    const element = document.querySelector(".image-list");
+
+    if (favorites === null || favorites.length === 0) {
+        searchNotFound("My favorites");
+    } else {
+         const resultList = searchFavoriteImage(favorites);
+
+        if (resultList != 0) {
+            console.log(resultList);
+            element.innerHTML = resultList;
+        } else {
+            searchNotFound("My favorites");
+        }
+    }
+});
+
+function displayFavorites(favorites) {
+    // Your logic to display favorites here
+    console.log("Displaying favorites:", favorites);
+}
+
 function searchNotFound(description) {
     const message = document.createElement('p');
     message.textContent = `No results found for "${description}".`;
@@ -71,6 +94,26 @@ async function searchImage(searchTeerm, param = 'q') {
         searchNotFound(searchTeerm);
     }
   }
+
+  async function searchFavoriteImage(nasaIdArray) {
+    const promises = nasaIdArray.map(async id => {
+        const response = await fetch(baseURL + `/search?nasa_id=${id}`);
+        const data = await convertToJson(response);
+        return data.collection.items;
+    });
+
+    const results = await Promise.all(promises);
+    const items = results.flat();
+
+    
+    // You can handle items here as needed
+    console.log(items);
+
+    const list = items.map(imageLibraryCardTemplate).join("");
+
+
+    return list;
+}
 
 
   function adjustSearchField(searchTeerm) {

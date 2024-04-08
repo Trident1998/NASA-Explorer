@@ -3,99 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rover and Camera Selection</title>
+<title>Favorite Symbol</title>
 <style>
-    /* Basic CSS styling */
-    body {
-        font-family: Arial, sans-serif;
-    }
-    label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    select {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
+  .favorite-symbol {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  .favorite-symbol.filled {
+    color: red; /* You can change the color here */
+  }
 </style>
 </head>
 <body>
-<div class="container">
-    <h2>Rover and Camera Selection</h2>
-    <form id="roverForm">
-        <!-- Rover selection -->
-        <label for="roverSelect">Select a rover with radar:</label>
-        <select id="roverSelect" name="rover">
-            <option value="">Select Rover</option>
-            <option value="curiosity">Curiosity</option>
-            <option value="perseverance">Perseverance</option>
-            <option value="opportunity">Opportunity</option>
-        </select>
-        <!-- Camera selection (populated dynamically based on selected rover) -->
-        <label for="cameraSelect">Select a camera:</label>
-        <select id="cameraSelect" name="camera" disabled>
-            <option value="">Select Rover First</option>
-        </select>
-        <!-- Submit button -->
-        <button type="submit">Submit</button>
-    </form>
-</div>
+
+<div class="favorite-symbol" id="favorite-symbol">&#9734;</div>
 
 <script>
-    // JavaScript to populate camera options based on selected rover
-    document.getElementById('roverSelect').addEventListener('change', function() {
-        var rover = this.value;
-        var cameraSelect = document.getElementById('cameraSelect');
+  const favoriteSymbol = document.getElementById('favorite-symbol');
 
-        // Clear existing options
-        cameraSelect.innerHTML = '';
-
-        // Populate camera options based on selected rover
-        switch (rover) {
-            case 'curiosity':
-                // Insert camera options for Curiosity rover
-                cameraSelect.disabled = false;
-                cameraSelect.innerHTML = `
-                    <option value="">Select Camera</option>
-                    <option value="FHAZ">Front Hazard Avoidance Camera (FHAZ)</option>
-                    <option value="RHAZ">Rear Hazard Avoidance Camera (RHAZ)</option>
-                    <option value="MAST">Mast Camera (MAST)</option>
-                    <option value="CHEMCAM">Chemistry and Camera Complex (CHEMCAM)</option>
-                `;
-                break;
-            case 'perseverance':
-                // Insert camera options for Perseverance rover
-                cameraSelect.disabled = false;
-                cameraSelect.innerHTML = `
-                    <option value="">Select Camera</option>
-                    <option value="EDL_RUCAM">Rover Up-Look Camera (RUCAM)</option>
-                    <option value="EDL_RDCAM">Rover Down-Look Camera (RDCAM)</option>
-                    <option value="EDL_DDCAM">Descent Stage Down-Look Camera (DDCAM)</option>
-                    <option value="NAVCAM_LEFT">Navigation Camera - Left (NAVCAM LEFT)</option>
-                    <option value="NAVCAM_RIGHT">Navigation Camera - Right (NAVCAM RIGHT)</option>
-                `;
-                break;
-            case 'opportunity':
-                // Insert camera options for Opportunity rover
-                cameraSelect.disabled = false;
-                cameraSelect.innerHTML = `
-                    <option value="">Select Camera</option>
-                    <option value="FRONT_HAZCAM_LEFT_A">Front Hazard Avoidance Camera - Left (FHAZ LEFT A)</option>
-                    <option value="FRONT_HAZCAM_RIGHT_A">Front Hazard Avoidance Camera - Right (FHAZ RIGHT A)</option>
-                    <option value="REAR_HAZCAM_LEFT">Rear Hazard Avoidance Camera - Left (RHAZ LEFT)</option>
-                    <option value="REAR_HAZCAM_RIGHT">Rear Hazard Avoidance Camera - Right (RHAZ RIGHT)</option>
-                `;
-                break;
-            default:
-                // Disable camera selection if no rover selected
-                cameraSelect.disabled = true;
-                cameraSelect.innerHTML = '<option value="">Select Rover First</option>';
-                break;
-        }
-    });
+  favoriteSymbol.addEventListener('click', function() {
+    this.classList.toggle('filled');
+    if (this.classList.contains('filled')) {
+      this.innerHTML = '&#9733;'; // Filled star
+    } else {
+      this.innerHTML = '&#9734;'; // Empty star
+    }
+  });
 </script>
+
 </body>
 </html>

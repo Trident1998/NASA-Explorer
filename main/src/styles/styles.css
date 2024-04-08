@@ -312,7 +312,8 @@ input[type="date"] {
   }
 
 input[type="submit"], 
-button[type="submit"] {
+button[type="submit"],
+button[type="button"] {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border: none;
@@ -322,7 +323,9 @@ button[type="submit"] {
     font-size: 16px;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+button[type="submit"]:hover ,
+button[type="button"]:hover {
     background-color: rgba(81, 51, 229, 0.7);
 
 }
@@ -379,6 +382,27 @@ input[type="submit"]:hover {
     color: #668cff;
 
 }
+
+.favorite-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.favorite-symbol {
+    cursor: pointer;
+    font-size: 2em; /* Increase the font size to make the star bigger */
+    width: 50px; /* You can adjust the width and height if needed */
+    height: 50px;
+  }
+
+.favorite-symbol p {
+    font-size: 24px;
+}
+  .favorite-symbol.filled {
+    color: red; /* You can change the color here */
+  }
 
 /*-------DAY PICTURE--------*/
 

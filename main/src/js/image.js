@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 const nasaId = getParams("nasa_id");
-searchImage(nasaId);
+await searchImage(nasaId);
 
 
 function getParams(param) {
@@ -37,4 +37,55 @@ async function searchImage(nasaId) {
     } else {
         searchNotFound(nasaId);
     }
+  }
+
+
+  const favoriteSymbol = document.getElementById('favorite-symbol');
+
+  favoriteSymbol.addEventListener('click', function() {
+    const metadataKeys = document.querySelectorAll('.metadata p.metadata-key');
+    let id = null;
+
+    // Loop through each element to find the one containing the text 'NASA ID:'
+    metadataKeys.forEach(element => {
+        if (element.textContent.trim() === 'NASA ID:') {
+            // Select the next sibling <p> element
+            const piaElement = element.nextElementSibling;
+            if (piaElement && piaElement.tagName.toLowerCase() === 'p') {
+                console.log(piaElement.textContent); // Output: PIA22350
+                id = piaElement.textContent;
+            }
+        }
+    });
+
+    this.classList.toggle('filled');
+    if (this.classList.contains('filled')) {
+        setLocalStorage('favorite', id);
+        this.innerHTML = '&#9733;';
+    } else {
+        removeStorage('favorite', id)
+        this.innerHTML = '&#9734;'; // Empty star
+        localStorage.removeItem('favorite');
+    }
+  });
+
+  export function getLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+  }
+  
+  // save data to local storage
+  export function setLocalStorage(key, id) {
+    let data = getLocalStorage(key) || [];
+    data.push(id); 
+    localStorage.setItem(key, JSON.stringify(data));
+  }
+  
+  // remove data from local storage
+  export function removeStorage(key, id) {
+    let data = getLocalStorage(key) || [];
+    let index = data.indexOf(id); 
+    if (index !== -1) {
+        data.splice(index, 1); 
+    }
+    localStorage.setItem(key, JSON.stringify(data));
   }
