@@ -65,7 +65,6 @@ async function searchImage(nasaId) {
     } else {
         removeStorage('favorite', id)
         this.innerHTML = '&#9734;'; // Empty star
-        localStorage.removeItem('favorite');
     }
   });
 

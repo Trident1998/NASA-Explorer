@@ -6,7 +6,7 @@ export function imageLibraryCardTemplate(data) {
                     <img src="${data.links[0].href}" alt="${data.data[0].title}" loading="lazy">
                     <div class="text-container">
                         <h4>${data.data[0].date_created.split('T')[0]}</h4>
-                        <h4>${data.data[0].title}</h4>
+                        <p>${data.data[0].title}</p>
                     </div>
 
                     <h3>DETAILS</h3>

@@ -43,16 +43,16 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
     }
 });
 
-document.getElementById("showFavoritesBtn").addEventListener("click", function() {
+document.getElementById("showFavoritesBtn").addEventListener("click", async function() {
     const favorites = JSON.parse(localStorage.getItem('favorite'));
     const element = document.querySelector(".image-list");
 
     if (favorites === null || favorites.length === 0) {
         searchNotFound("My favorites");
     } else {
-         const resultList = searchFavoriteImage(favorites);
+        const resultList = await searchFavoriteImage(favorites);
 
-        if (resultList != 0) {
+        if (resultList.length !== 0) {
             console.log(resultList);
             element.innerHTML = resultList;
         } else {
@@ -73,6 +73,7 @@ function searchNotFound(description) {
     message.style.fontWeight = 'bold';
     
     document.querySelector(".image-list").innerHTML = '';
+    document.querySelector(".error-message").innerHTML = '';
     const searchResultsContainer = document.querySelector('.error-message');
     searchResultsContainer.appendChild(message);
 }
@@ -105,12 +106,10 @@ async function searchImage(searchTeerm, param = 'q') {
     const results = await Promise.all(promises);
     const items = results.flat();
 
-    
     // You can handle items here as needed
     console.log(items);
 
     const list = items.map(imageLibraryCardTemplate).join("");
-
 
     return list;
 }
