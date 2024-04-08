@@ -273,6 +273,12 @@ form {
     font-size: 16px;
 }
 
+#searchForm div:first-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 #description {
     background-color: var(--dark-accent-color);
     padding: 8px;
