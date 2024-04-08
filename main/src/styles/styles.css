@@ -204,6 +204,7 @@ img {
 .text-container {
     margin: 20px 15px;
     text-align: left;
+    overflow: hidden;
 }
 
 .text-container h2 {
@@ -337,7 +338,6 @@ input[type="submit"]:hover {
     flex-direction: column;
     margin: 15px 0;
 }
-
 .horizontal-line {
     display: block;
     border-top: 1px solid #000; /* Adjust color and thickness as needed */
@@ -363,6 +363,10 @@ input[type="submit"]:hover {
     font-size: 18px;
     text-align: left;
     margin-top: 40px;
+}
+
+.description {
+    word-wrap: break-all;
 }
 
 .metadata a {
