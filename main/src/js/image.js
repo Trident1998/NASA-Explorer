@@ -39,7 +39,6 @@ async function searchImage(nasaId) {
     }
   }
 
-
   const favoriteSymbol = document.getElementById('favorite-symbol');
 
   favoriteSymbol.addEventListener('click', function() {
@@ -52,7 +51,7 @@ async function searchImage(nasaId) {
             // Select the next sibling <p> element
             const piaElement = element.nextElementSibling;
             if (piaElement && piaElement.tagName.toLowerCase() === 'p') {
-                console.log(piaElement.textContent); // Output: PIA22350
+                console.log(piaElement.textContent); 
                 id = piaElement.textContent;
             }
         }
