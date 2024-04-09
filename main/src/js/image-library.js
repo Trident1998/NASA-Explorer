@@ -61,11 +61,6 @@ document.getElementById("showFavoritesBtn").addEventListener("click", async func
     }
 });
 
-function displayFavorites(favorites) {
-    // Your logic to display favorites here
-    console.log("Displaying favorites:", favorites);
-}
-
 function searchNotFound(description) {
     const message = document.createElement('p');
     message.textContent = `No results found for "${description}".`;
