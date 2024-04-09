@@ -172,15 +172,18 @@
     .image-list li img {
         min-height: 200px;
         max-height: 200px;
-        object-fit: cover; /* Ensure the image covers the entire space */
-        object-position: top; /* Center the image within its container */
-        overflow: hidden; /* Hide the overflowing parts of the image */
+        object-fit: cover; 
+        object-position: top; 
+        overflow: hidden; 
         
     }
 
-    .image-list .card a {
+    .image-list li {
         display: block;
         min-width: 100%;
+    }
+
+    .image-list .card a {
         min-height: 450px;
         max-height: 450px;
     }
@@ -199,6 +202,10 @@
 
     .card a h3 {
         margin-top: auto;        
+    }
+
+    .card a h3:hover {
+        text-decoration: underline; 
     }
 
     /*-------IMAGE ITEM--------*/
