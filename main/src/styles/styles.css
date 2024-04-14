@@ -197,7 +197,7 @@ img {
     width: 100%; /* Ensure the image fills the width of its container */
     height: calc(100vw * 0.4); /* Set the height to 40% of the viewport width */
     object-fit: cover; /* Ensure the image covers the entire space */
-    object-position: top; /* Center the image within its container */
+    object-position: center; /* Center the image within its container */
     overflow: hidden; /* Hide the overflowing parts of the image */
 }
 

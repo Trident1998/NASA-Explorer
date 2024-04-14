@@ -108,8 +108,6 @@
         border-bottom: 1px solid  rgba(81, 51, 229, 0.3);
         width: 100%; /* Ensure the image fills the width of its container */
         height: 500px; /* Set the height to 40% of the viewport width */
-        object-position: top; /* Center the image within its container */
-        overflow: hidden; /* Hide the overflowing parts of the image */
     }
 
     .main .text-container p {
@@ -173,8 +171,6 @@
         min-height: 200px;
         max-height: 200px;
         object-fit: cover; 
-        object-position: top; 
-        overflow: hidden; 
         
     }
 
